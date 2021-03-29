@@ -2,28 +2,20 @@ NAME = ft_containers
 
 CC = clang++
 
-FLAGS = -Werror -Wextra -Wall
+FLAGS = -Werror -Wextra -Wall -g3 -fsanitize=address
 
-CCF = $(CC) $(FLAGSS)
+CCF = $(CC) $(FLAGS)
 
 RM = rm -f
 
 LIST_SRC = List/
 
-LIST_FILES = List.cpp
-
-LIST_OBJ = $(addprefix $(LIST_SRC), $(LIST_FILES))
-
-LIST_OBJS = $(LIST_OBJ:.cpp=.o)
-
 
 all: $(NAME)
 
-$(NAME): $(LIST_OBJS) main.cpp
+$(NAME): $(LIST_OBJS) $(LIST_SRC) main.cpp
 	$(CCF) $(LIST_OBJS) main.cpp -o $@ -I$(LIST_SRC)
 
-%.o : %.cpp $(LIST_SRC)
-	$(CCF) $< -c -o $@
 
 clean:
 	$(RM) $(LIST_OBJS)

@@ -1,14 +1,11 @@
 #include "List.hpp"
 
 #include <iostream>
-#include <list>
+#include <queue>
 
 int main()
 {
-
-	std::list<int> Test (985, 400);
-	std::cout << Test.size() << std::endl;
-	std::cout << *Test.begin() << std::endl;
-	std::cout << *Test.end() << std::endl;
+	std::queue<int> Test;
+	std::cout << Test.empty() << std::endl;
 	return 0;
 }
